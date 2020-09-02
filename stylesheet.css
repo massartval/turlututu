@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin-top: 0; /* Empêche la barre bleue au-dessus du header */
+}
+
+html {
+    background-color: #1E93CC;
+    color: #FFFFFF;
+    font-family: sans-serif;
+    position: static; /* Constat: Relative et Absolute ne collent pas le footer au fond de la page */
+}
+body {
+    margin: 0; 
+    padding: 0;
+    position: absolute; /* Constat: Absolute permet de fixer le footer en bas de page avec une marge bleue à gauche et à droite ; Relative donne le même résultat mais avec une marge en-dessous également */ 
+/*  min-height: 1000px; */ /* Empêche que le footer ne remonte */
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* HEADER */
+
+header, footer {
+    background-color: #333333;
+    margin: none;
+    padding: none;
+    width: 100%;
+    /* Problèmes: marge d'affichage de la couleur de fond (header gauche et droite, footer gauche) ; marge verticale différente */
+}
+
+nav li {
+    display: inline-block;
+}
+#login, #trademark { /* Il y a certainement moyen d'obtenir un meilleur résultat avec une utilisation intelligente du flex (et la pseudo-classe :last-child) */
+    position: relative;
+    left: 50%;
+}
+#login img {
+    /* Problème: alignement vertical de l'image */
+}
+
+/* MAIN */
+
+main section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Les div "normales" (sans classe) ne s'alignent pas correctement, elles ne se "wrappent" pas */
+    margin: none;
+    padding: none;
+}
+main div {
+/*  border: solid 1px; */ /* Pour la clarté pendant le travail */
+    border-color: #FFFFFF;
+    padding: 1em;
+}
+
+div:not(.highlight) {
+    max-width: 50%;
+}
+
+.highlight {
+    width: 100%;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.highlight > * {
+    font-weight: 300;
+}
+
+/*
+#bluetext
+*/
+
+#hero {}
+
+#text {}
+
+#logos {
+    background-color: #EEEEEE;
+}
+
+#buttons {}
+
+button {
+    background-color: #165882;
+    border: O; /* Comment éliminer le bord du bouton ? */
+    box-shadow: none; /* Comment éliminer le bord du bouton ? */
+    border-radius: 10px;
+    font-size: 2em;
+    padding: 20px;
+}
+.orange-button {
+    background-color: #E99002;
+}
+
+/* FOOTER */ 
+
+footer { /* Problème: position:Absolute permet d'éliminer la marge bleue sous le footer mais se téléscope avec la dernière section du main */
+/*  
+    position: absolute; 
+    bottom: 0px;
+*/
+}
